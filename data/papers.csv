@@ -1,0 +1,9 @@
+paper_id,year,title,doi,kind,why_relevant
+P001,2026,Catalysis AI Agent Guides Discovering the Universal Design Principle of Cu-Based Single-Atom Alloy Catalysts for CO2 Electroreduction,10.1002/anie.202524612,AI_and_Cu_CO2RR,Direct baseline against which novelty must be established
+P002,2026,Hierarchical Multi-agent Large Language Model Reasoning for Autonomous Heterogeneous Catalyst Discovery,10.1038/s41524-026-02139-1,multi_agent_DFT,Cu-surface catalyst-discovery reasoning benchmark
+P003,2026,Reasoning-Driven Design of Single-Atom Catalysts via a Multiagent Large Language Model Framework,10.1021/acscentsci.6c01260,multi_agent_MLFF,Existing reflection and optimization architecture
+P004,2026,"Verification-first autonomous catalysis: large language models as infrastructure for mechanism, computation, and experiment",10.1038/s44387-026-00111-4,scientific_verification,Verification-first rationale and metrics already published
+P005,2024,Manipulating C-C coupling pathway in electrochemical CO2 reduction for selective ethylene and ethanol production over single-atom alloy catalyst,10.1038/s41467-024-54636-w,Cu_Ag_experimental,Ethylene versus ethanol mechanistic case
+P006,2024,Large language model enhanced corpus of CO2 reduction electrocatalysts and synthesis procedures,10.1038/s41597-024-03180-9,scientific_dataset,Public benchmark and extended literature extraction corpora
+P007,2026,Dual-Atom Dopants Activated Copper Dilute Alloy Boosts Electroreduction CO2-to-C2+ Products at Ampere-Level Current Density,10.1002/anie.5598898,dual_site_experiment,Multi-site mechanistic design motivating later expansion
+P008,2026,Electrified metal-water interfaces at constant potential: Data-efficient transfer learning for machine-learning-based molecular dynamics,10.1016/j.esci.2026.100642,constant_potential_MLIP,Applied-potential modeling cannot be assumed from generic energies
