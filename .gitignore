@@ -1,0 +1,32 @@
+# Python and notebook state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+.venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Tokens and Streamlit deployment secrets
+.streamlit/secrets.toml
+
+# Scientific outputs, caches, and local data
+outputs/**
+!outputs/.gitkeep
+!outputs/**/.gitkeep
+models/checkpoints/
+data/raw/**
+!data/raw/.gitkeep
+data/interim/**
+!data/interim/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+*.log
+
+# Local scratch
+.cache/

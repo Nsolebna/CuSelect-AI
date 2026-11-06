@@ -1,0 +1,8 @@
+name: cuselect
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+# After creating the environment, install the project editable:
+# python -m pip install -e ".[notebook,app,dev]"
