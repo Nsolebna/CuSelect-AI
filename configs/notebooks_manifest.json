@@ -1,0 +1,19 @@
+{
+  "project": "CuSelect-AI",
+  "count_planned": 10,
+  "created": [
+    "00_Environment_and_Reproducibility.ipynb",
+    "01_Research_Question_and_Protocol.ipynb"
+  ],
+  "future_titles": [
+    "02_Literature_and_Evidence.ipynb",
+    "03_Data_Audit_and_Curation.ipynb",
+    "04_Catalyst_Structures.ipynb",
+    "05_Scientific_ML_and_Baselines.ipynb",
+    "06_RAG_and_Evidence_Quality.ipynb",
+    "07_Multi_Agent_Workflow.ipynb",
+    "08_Critic_and_Active_Learning.ipynb",
+    "09_Benchmarking_and_Report.ipynb"
+  ],
+  "policy": "Create future notebooks only when previous stage gate passes; reusable code in src/cuselect."
+}

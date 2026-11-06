@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1",
+  "campaign_id": "CU-001",
+  "research_question": "Can a mechanism-aware scientific critic reduce unsupported advancement of Cu-Ag CO2RR catalyst proposals without excessive rejection of valid candidates?",
+  "task_type": "evidence_reliability",
+  "system": {
+    "reaction": "CO2 electroreduction",
+    "target_product": "ethylene (C2H4)",
+    "reference_surface": "Cu(100)",
+    "initial_candidates": [
+      "CU-001-REF",
+      "CU-001-AG1"
+    ],
+    "initial_alloy_model": "substitutional top-layer Ag in periodic Cu(100) slab"
+  },
+  "known_model_boundaries": {
+    "structures_relaxed": false,
+    "adsorption_energies_computed": false,
+    "selectivity_predicted": false,
+    "operating_potential_modeled": false
+  },
+  "evaluation": {
+    "primary_metric": "false_advancement_rate_at_defined_coverage",
+    "secondary_metrics": [
+      "false_rejection_rate",
+      "abstention_rate",
+      "citation_support_rate",
+      "cost_per_validated_decision"
+    ],
+    "holdout_group": "DOI/publication (not random row)",
+    "controls": [
+      "descriptor_only",
+      "single_agent",
+      "multi_agent_no_critic"
+    ],
+    "evaluation_status": "planned_not_run"
+  }
+}
