@@ -12,6 +12,7 @@
 
 from pathlib import Path
 
+from .watcher_lock import exclusive_history_lock
 from .discovery import discover_crossref
 from .research_watcher import (
     load_history,
@@ -36,7 +37,7 @@ class WatcherScanError(RuntimeError):
     pass
 
 
-def scan_and_digest(
+def _scan_and_digest_unlocked(
     history_path,
     query=DEFAULT_QUERY,
     rows=30,
@@ -151,6 +152,43 @@ def scan_and_digest(
         digest["history_saved"] = True
 
     return digest
+
+
+
+def scan_and_digest(
+    history_path,
+    query=DEFAULT_QUERY,
+    rows=30,
+    minimum_results=25,
+    persist_history=False,
+):
+    """Run a watcher scan with exclusive locking for save mode."""
+
+    # PSEUDOCODE
+    # 1. Validate the requested operating mode.
+    # 2. Acquire an exclusive lock before any save-mode read.
+    # 3. Hold the lock across discovery and history saving.
+    # 4. Release the lock on success or failure.
+    # 5. Keep read-only previews free of write locks.
+
+    if type(persist_history) is not bool:
+        raise WatcherScanError(
+            "persist_history must be a boolean"
+        )
+
+    arguments = {
+        "history_path": history_path,
+        "query": query,
+        "rows": rows,
+        "minimum_results": minimum_results,
+        "persist_history": persist_history,
+    }
+
+    if persist_history:
+        with exclusive_history_lock(history_path):
+            return _scan_and_digest_unlocked(**arguments)
+
+    return _scan_and_digest_unlocked(**arguments)
 
 
 def format_digest(digest):
