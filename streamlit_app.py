@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from cuselect.agents import ResearchTask
 from cuselect.orchestrator import run_research_workflow
+from cuselect.evidence_navigator import build_evidence_cards
 from cuselect.molecular_viewer import build_structure_html
 
 
@@ -161,22 +162,56 @@ if submitted:
     st.write(result["response"])
 
     if result["citations"]:
-        st.subheader("Source evidence")
+        st.subheader("Scientific Evidence Navigator")
 
-        for citation in result["citations"]:
-            st.write(
-                "**Evidence ID:**",
-                citation["evidence_id"],
-            )
-            st.write("**DOI:**", citation["doi"])
-            st.write(
-                "**Source location:**",
-                citation["source_location"],
-            )
-            st.write(
-                "**Source extent:**",
-                citation["source_extent"],
-            )
+        cards = build_evidence_cards(
+            result["citations"],
+            ROOT,
+        )
+
+        for card in cards:
+            with st.expander(
+                f"Evidence {card['evidence_id']}",
+                expanded=True,
+            ):
+                st.write("**Reviewed scientific claim**")
+                st.write(card["claim"])
+
+                st.write(
+                    "**Catalyst:**",
+                    card["catalyst"],
+                )
+                st.write(
+                    "**Experimental conditions:**",
+                    card["conditions"],
+                )
+                st.write(
+                    "**Source location:**",
+                    card["source_location"],
+                )
+                st.write(
+                    "**Source extent:**",
+                    card["source_extent"],
+                )
+                st.write(
+                    "**Review status:**",
+                    card["review_status"],
+                )
+                st.write(
+                    "**DOI:**",
+                    card["doi"],
+                )
+
+                st.link_button(
+                    "Open original publication",
+                    card["publication_url"],
+                )
+
+        st.caption(
+            "Evidence is from one publication. "
+            "The links open the publication, "
+            "not a highlighted PDF passage."
+        )
 
     if result["candidate_ids"]:
         st.subheader("Interactive 3D catalyst structures")
