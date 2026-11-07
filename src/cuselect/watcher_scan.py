@@ -16,6 +16,7 @@ from .discovery import discover_crossref
 from .research_watcher import (
     load_history,
     observe_publications,
+    save_history,
 )
 
 
@@ -40,8 +41,15 @@ def scan_and_digest(
     query=DEFAULT_QUERY,
     rows=30,
     minimum_results=25,
+    persist_history=False,
 ):
-    """Perform one read-only scientific-literature scan."""
+    """Run a validated scan, optionally saving DOI history."""
+
+    if type(persist_history) is not bool:
+        raise WatcherScanError(
+            "persist_history must be a boolean"
+        )
+
 
     path = Path(history_path)
 
@@ -52,6 +60,7 @@ def scan_and_digest(
             "Research Watcher baseline does not exist"
         )
 
+    original_bytes = path.read_bytes()
     history = load_history(path)
 
     if not history["initialized"]:
@@ -129,6 +138,18 @@ def scan_and_digest(
         "history_saved": False,
     }
 
+    # PSEUDOCODE
+    # Commit the proposed history only after all validation.
+    # Refuse a stale update if another process changed the file.
+    if persist_history:
+        if path.read_bytes() != original_bytes:
+            raise WatcherScanError(
+                "Watcher history changed during the scan"
+            )
+
+        save_history(path, proposed_history)
+        digest["history_saved"] = True
+
     return digest
 
 
@@ -174,7 +195,11 @@ def format_digest(digest):
 
     lines.extend([
         "",
-        "History saved: NO (read-only preview)",
+        (
+            "History saved: YES"
+            if digest.get("history_saved")
+            else "History saved: NO (read-only preview)"
+        ),
         "Human review queue modified: NO",
         "Verified scientific evidence modified: NO",
     ])
