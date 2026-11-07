@@ -1,0 +1,34 @@
+{
+  "campaign_id": "CU-001",
+  "notebook": "04_Catalyst_Structures",
+  "source": "initial geometries generated with ASE; no DFT relaxation",
+  "candidate_count": 8,
+  "geometry_status": "unrelaxed",
+  "human_review_status": "pending_visual_review",
+  "ml_approved": false,
+  "files": [
+    "CU-001-REF.extxyz",
+    "CU-001-AG1.extxyz",
+    "CU-001-100-AG2-NN.extxyz",
+    "CU-001-100-AG2-SEP.extxyz",
+    "CU-001-100-AG1-SUB.extxyz",
+    "CU-001-111-REF.extxyz",
+    "CU-001-111-AG1.extxyz",
+    "CU-001-111-AG2-NN.extxyz"
+  ],
+  "registry_file": "04_structure_registry.csv",
+  "constraints": {
+    "lattice_constant_A": 3.615,
+    "supercell": [
+      3,
+      3,
+      4
+    ],
+    "initial_vacuum_each_side_A": 12.0,
+    "pbc_xyz": [
+      true,
+      true,
+      false
+    ]
+  }
+}

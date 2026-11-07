@@ -1,0 +1,12 @@
+{
+  "campaign_id": "CU-001",
+  "notebook": "06_RAG_and_Evidence_Quality",
+  "records": 3,
+  "source_publications": 1,
+  "verified_claims_only": true,
+  "contains_original_full_text": false,
+  "retrieval_baseline": "lexical_BM25_style",
+  "independent_RAG_benchmark_completed": false,
+  "production_RAG_validated": false,
+  "corpus_sha256": "d9a2546c5be7cb3674f2c9564f18279494b3804c7cf4fd5e06f181644e371bd4"
+}
