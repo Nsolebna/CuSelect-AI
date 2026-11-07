@@ -271,3 +271,8 @@ if submitted:
                 result["source_corpus_sha256"]
             ),
         })
+
+# CuSelect-AI — Human Literature Review Queue
+from cuselect.review_queue_ui import render_review_queue
+
+render_review_queue(ROOT)
