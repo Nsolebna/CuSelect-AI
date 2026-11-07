@@ -301,3 +301,170 @@ def test_run_digest_matches_workflow_payload():
     }
 
     assert orchestrator.digest(payload) == result["run_sha256"]
+
+
+# PSEUDOCODE
+# 1. Run the existing scientific workflow.
+# 2. Collect live events through a callback.
+# 3. Confirm each agent starts and completes in order.
+# 4. Verify the original workflow output remains unchanged.
+
+def test_live_agent_events():
+    events = []
+
+    task = ResearchTask(
+        "LIVE-001",
+        "source_question",
+        "What ethylene FE was reported for AgCu NW?",
+    )
+
+    result = run_research_workflow(
+        task,
+        project_root=ROOT,
+        on_event=lambda event: events.append(event.copy()),
+    )
+
+    assert [event["status"] for event in events] == [
+        "started",
+        "completed",
+        "started",
+        "completed",
+        "started",
+        "completed",
+    ]
+
+    assert [event["agent"] for event in events] == [
+        "literature_agent",
+        "literature_agent",
+        "design_agent",
+        "design_agent",
+        "scientific_critic",
+        "scientific_critic",
+    ]
+
+    assert result["decision"] == "evidence_only"
+    assert result["run_sha256"] == run(task)["run_sha256"]
+
+# PSEUDOCODE
+# 1. Simulate a failure in each agent.
+# 2. Capture started, completed and failed events.
+# 3. Ensure failed operations are never reported as completed.
+# 4. Verify exceptions propagate.
+# 5. Reject invalid event callbacks.
+
+@pytest.mark.parametrize(
+    "target, expected_statuses",
+    [
+        ("literature_agent", ["started", "failed"]),
+        (
+            "design_agent",
+            ["started", "completed", "started", "failed"],
+        ),
+        (
+            "review_scientific_assertion",
+            [
+                "started", "completed",
+                "started", "completed",
+                "started", "failed",
+            ],
+        ),
+    ],
+)
+def test_live_agent_failure_events(
+    monkeypatch,
+    target,
+    expected_statuses,
+):
+    events = []
+
+    def simulated_failure(*args, **kwargs):
+        raise RuntimeError("Simulated agent failure")
+
+    monkeypatch.setattr(
+        orchestrator,
+        target,
+        simulated_failure,
+    )
+
+    task = ResearchTask(
+        "LIVE-FAIL-001",
+        "source_question",
+        "What ethylene FE was reported for AgCu NW?",
+    )
+
+    with pytest.raises(
+        RuntimeError,
+        match="Simulated agent failure",
+    ):
+        run_research_workflow(
+            task,
+            project_root=ROOT,
+            on_event=lambda e: events.append(e.copy()),
+        )
+
+    assert [e["status"] for e in events] == expected_statuses
+    assert events[-1]["status"] == "failed"
+
+
+def test_invalid_live_callback_is_rejected():
+    task = ResearchTask(
+        "LIVE-INVALID-001",
+        "source_question",
+        "What ethylene FE was reported for AgCu NW?",
+    )
+
+    with pytest.raises(TypeError):
+        run_research_workflow(
+            task,
+            project_root=ROOT,
+            on_event="not_a_callable",
+        )
+
+def test_forged_critic_emits_failed_event(monkeypatch):
+    # PSEUDOCODE:
+    # 1. Simulate a forged Scientific Critic citation.
+    # 2. Capture live events.
+    # 3. Require rejection and a final failed event.
+
+    from cuselect.scientific_critic import CriticDecision
+
+    events = []
+
+    def forged_review(assertion, *, project_root):
+        return CriticDecision(
+            assertion_id=assertion.assertion_id,
+            decision="evidence_only",
+            reason_codes=("forged",),
+            cited_ids=("E-FAKE-001",),
+            canonical_response="Unsupported scientific claim",
+        )
+
+    monkeypatch.setattr(
+        orchestrator,
+        "review_scientific_assertion",
+        forged_review,
+    )
+
+    task = ResearchTask(
+        "LIVE-SEC-001",
+        "source_question",
+        "What ethylene FE was reported for AgCu NW?",
+    )
+
+    with pytest.raises(RuntimeError):
+        run_research_workflow(
+            task,
+            project_root=ROOT,
+            on_event=lambda event: events.append(event.copy()),
+        )
+
+    assert [event["status"] for event in events] == [
+        "started",
+        "completed",
+        "started",
+        "completed",
+        "started",
+        "failed",
+    ]
+
+    assert events[-1]["agent"] == "scientific_critic"

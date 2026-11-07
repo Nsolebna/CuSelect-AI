@@ -18,6 +18,9 @@ from dataclasses import asdict
 from pathlib import Path
 import hashlib
 import json
+from collections.abc import Callable
+from contextlib import contextmanager
+
 
 from .agents import (
     ResearchTask,
@@ -126,6 +129,7 @@ def run_research_workflow(
     task: ResearchTask,
     *,
     project_root: str | Path = ".",
+    on_event: Callable[[dict], None] | None = None,
 ) -> dict:
     """Execute a bounded, deterministic three-agent workflow."""
 
@@ -190,11 +194,52 @@ def run_research_workflow(
             "message": message,
         })
 
+
+    # PSEUDOCODE
+    # 1. Announce an authorized agent operation before it runs.
+    # 2. Report completion only after successful execution.
+    # 3. Report genuine failures and propagate the exception.
+    # 4. Do not invent progress or expose scientific data in events.
+    # 5. Preserve the original deterministic workflow result.
+
+    @contextmanager
+    def agent_stage(agent: str, tool: str):
+        if tool not in AGENT_TOOLS.get(agent, frozenset()):
+            raise RuntimeError("Unauthorized agent operation")
+
+        if len(trace) >= MAX_AGENT_STEPS:
+            raise RuntimeError("Agent step budget exhausted")
+
+        step = len(trace) + 1
+
+        def emit(status: str):
+            if on_event is not None:
+                on_event({
+                    "step": step,
+                    "agent": agent,
+                    "tool": tool,
+                    "status": status,
+                })
+
+        emit("started")
+
+        try:
+            yield
+        except Exception:
+            emit("failed")
+            raise
+        else:
+            emit("completed")
+
     # Step 1: Literature Agent.
-    literature = literature_agent(
-        task,
-        project_root=root,
-    )
+    with agent_stage(
+        "literature_agent",
+        "approved_claim_lookup",
+    ):
+        literature = literature_agent(
+            task,
+            project_root=root,
+        )
 
     log(
         "literature_agent",
@@ -205,58 +250,83 @@ def run_research_workflow(
         f"{list(literature.ids)}",
     )
 
+    
     # Step 2: Design Agent.
-    design = design_agent(task, geometries)
+    # PSEUDOCODE
+    # 1. Emit the agent-started event.
+    # 2. Execute the registered geometry lookup.
+    # 3. Record the genuine tool output.
+    # 4. Emit completed only after success.
 
-    log(
+    with agent_stage(
         "design_agent",
         "registered_geometry_lookup",
-        asdict(task),
-        design,
-        f"Status: {design.status}; candidate IDs: "
-        f"{list(design.ids)}",
-    )
+    ):
+        design = design_agent(task, geometries)
 
+        log(
+            "design_agent",
+            "registered_geometry_lookup",
+            asdict(task),
+            design,
+            f"Status: {design.status}; candidate IDs: "
+            f"{list(design.ids)}",
+        )
+
+
+    
     # Step 3: Scientific Critic.
-    assertion = _assertion_from_results(
-        task,
-        literature,
-        design,
-        evidence_by_id,
-    )
+    # PSEUDOCODE
+    # 1. Announce that scientific review has begun.
+    # 2. Construct an assertion from actual agent results.
+    # 3. Apply the Scientific Critic's approval rules.
+    # 4. Log the resulting decision and reason codes.
+    # 5. Emit completed only after successful review.
 
-    critic = review_scientific_assertion(
-        assertion,
-        project_root=root,
-    )
-
-    log(
+    with agent_stage(
         "scientific_critic",
         "policy_check",
-        {
-            "assertion": asdict(assertion),
-            "literature": asdict(literature),
-            "design": asdict(design),
-        },
-        critic,
-        f"Decision: {critic.decision}; "
-        f"reason codes: {list(critic.reason_codes)}",
-    )
+    ):
+        assertion = _assertion_from_results(
+            task,
+            literature,
+            design,
+            evidence_by_id,
+        )
 
-    # Final decision must agree with the authorized agent result.
-    if critic.decision == "evidence_only":
-        if (
-            critic.cited_ids != literature.ids
-            or not literature.citation_audit_passed
-        ):
-            raise RuntimeError("Evidence/critic decision mismatch")
+        critic = review_scientific_assertion(
+            assertion,
+            project_root=root,
+        )
 
-    elif critic.decision == "hypothesis_only":
-        if critic.candidate_ids != design.ids:
-            raise RuntimeError("Design/critic decision mismatch")
+        log(
+            "scientific_critic",
+            "policy_check",
+            {
+                "assertion": asdict(assertion),
+                "literature": asdict(literature),
+                "design": asdict(design),
+            },
+            critic,
+            f"Decision: {critic.decision}; "
+            f"reason codes: {list(critic.reason_codes)}",
+        )
 
-    elif critic.decision != "abstain":
-        raise RuntimeError("Unknown scientific critic decision")
+
+        # Final decision must agree with the authorized agent result.
+        if critic.decision == "evidence_only":
+            if (
+                critic.cited_ids != literature.ids
+                or not literature.citation_audit_passed
+            ):
+                raise RuntimeError("Evidence/critic decision mismatch")
+
+        elif critic.decision == "hypothesis_only":
+            if critic.candidate_ids != design.ids:
+                raise RuntimeError("Design/critic decision mismatch")
+
+        elif critic.decision != "abstain":
+            raise RuntimeError("Unknown scientific critic decision")
 
     citations = [
         {
@@ -304,3 +374,71 @@ def run_research_workflow(
     result["run_sha256"] = digest(result)
 
     return result
+
+
+    # PSEUDOCODE
+    # 1. Accept an optional live-event callback.
+    # 2. Reject invalid callbacks before executing research.
+    # 3. Keep scientific execution unchanged when no callback exists.
+
+    if on_event is not None and not callable(on_event):
+        raise TypeError("on_event must be callable or None")
+
+
+# PSEUDOCODE
+# 1. Simulate a failure inside each of the three agents.
+# 2. Collect the actual events emitted by the orchestrator.
+# 3. Confirm the failed agent emits "started" then "failed".
+# 4. Ensure no false "completed" event is emitted.
+# 5. Confirm the original exception is propagated.
+# 6. Reject invalid event callbacks before execution.
+
+
+
+# PSEUDOCODE
+# 1. Simulate a Scientific Critic returning a fake citation.
+# 2. Capture live agent events.
+# 3. Check that the orchestrator rejects the citation.
+# 4. Confirm the Scientific Critic reports "failed".
+
+def test_forged_critic_emits_failed_event(monkeypatch):
+    events = []
+
+    def forged_review(assertion, *, project_root):
+        return CriticDecision(
+            assertion_id=assertion.assertion_id,
+            decision="evidence_only",
+            reason_codes=("forged",),
+            cited_ids=("E-FAKE-001",),
+            canonical_response="Unsupported scientific claim",
+        )
+
+    monkeypatch.setattr(
+        orchestrator,
+        "review_scientific_assertion",
+        forged_review,
+    )
+
+    task = ResearchTask(
+        "LIVE-SEC-001",
+        "source_question",
+        "What ethylene FE was reported for AgCu NW?",
+    )
+
+    with pytest.raises(RuntimeError):
+        run_research_workflow(
+            task,
+            project_root=ROOT,
+            on_event=lambda event: events.append(event.copy()),
+        )
+
+    assert [event["status"] for event in events] == [
+        "started",
+        "completed",
+        "started",
+        "completed",
+        "started",
+        "failed",
+    ]
+
+    assert events[-1]["agent"] == "scientific_critic"
