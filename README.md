@@ -29,6 +29,16 @@ Can a mechanism-aware verification agent reduce unsupported advancement of Cu–
 
 We will use **10 numbered notebooks** (00–09) as described in [`docs/NOTEBOOK_ROADMAP.md`](docs/NOTEBOOK_ROADMAP.md). Only 00 and 01 are created now. We add later notebooks when the preceding scientific gate passes. Reusable functions live in `src/cuselect/`; tested behaviors in `tests/`.
 
+## Research workspace
+
+```bash
+python -m streamlit run streamlit_app.py
+```
+
+The workspace opens four sections for the historical research case, local workflow,
+scientific evidence and catalyst models. Literature discovery uses Crossref when requested.
+The 3D viewer loads 3Dmol.js in the browser.
+
 ## Existing Stage-1 geometry application
 
 ```bash

@@ -28,6 +28,7 @@ from .agents import (
     design_agent,
 )
 from .evidence_store import load_verified_corpus
+from .dynamic_literature import dynamic_literature_agent
 from .geometry_store import load_geometry_registry
 from .scientific_critic import (
     ScientificAssertion,
@@ -130,8 +131,12 @@ def run_research_workflow(
     *,
     project_root: str | Path = ".",
     on_event: Callable[[dict], None] | None = None,
+    literature_mode: str = "legacy",
 ) -> dict:
     """Execute a bounded, deterministic three-agent workflow."""
+
+    if literature_mode not in {"legacy", "dynamic"}:
+        raise ValueError("Unknown literature mode")
 
     if not isinstance(task, ResearchTask):
         raise TypeError("Expected a ResearchTask")
@@ -236,7 +241,12 @@ def run_research_workflow(
         "literature_agent",
         "approved_claim_lookup",
     ):
-        literature = literature_agent(
+        selected_literature_agent = (
+            literature_agent
+            if literature_mode == "legacy"
+            else dynamic_literature_agent
+        )
+        literature = selected_literature_agent(
             task,
             project_root=root,
         )
