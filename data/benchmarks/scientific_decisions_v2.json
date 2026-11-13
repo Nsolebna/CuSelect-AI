@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "benchmark_type": "scientific_decision_calibration",
+  "data_origin": "synthetic_educational_scenarios",
+  "status": "draft_not_human_approved",
+  "cases": [
+    {
+      "id": "B07",
+      "title": "Reproducible performance advantage",
+      "expected_disposition": "advance_to_experimental_planning",
+      "scientific_challenge": "SYNTHETIC BENCHMARK DATA. Three independently prepared Ag/Cu electrodes and three Cu controls were tested in the same gas-fed CO2 electrolyzer under matched conditions. The Ag/Cu electrodes showed higher ethylene partial current density than Cu controls across a predefined operating range. Replicate uncertainty intervals and product balances were reported; the advantage persisted during the predefined stability test. Fabrication and area differences were measured and bounded. No source-resolved CO-transfer evidence was collected. Critically assess the scientific evidence. Identify supported observations, unresolved assumptions, alternative explanations and methodological limitations. Recommend the appropriate disposition for the claim, justify your decision and propose discriminating next steps.",
+      "required_reasoning": [
+        "Recognize sufficient preliminary support for advancing to controlled experimental planning.",
+        "Distinguish demonstrated performance from unproven mechanistic attribution.",
+        "Propose discriminating follow-up experiments.",
+        "Retain uncertainty about carbon source and transport pathway."
+      ],
+      "forbidden_conclusions": [
+        "Claim that surface spillover is proven.",
+        "Treat advancement as commercial validation."
+      ]
+    },
+    {
+      "id": "B08",
+      "title": "Promising but confounded performance",
+      "expected_disposition": "revise_before_advancing",
+      "scientific_challenge": "SYNTHETIC BENCHMARK DATA. An Ag/Cu electrode shows higher ethylene FE than a Cu control in one exploratory run. The electrodes differ in roughness, wetting and catalyst loading. Gas-outlet flow and carbon balance were not measured. No independent repeats or time-series stability data are available. Critically assess the scientific evidence. Identify supported observations, unresolved assumptions, alternative explanations and methodological limitations. Recommend the appropriate disposition for the claim, justify your decision and propose discriminating next steps.",
+      "required_reasoning": [
+        "Distinguish FE from production rate.",
+        "Identify fabrication and transport confounders.",
+        "Request calibrated product accounting and repeats.",
+        "Recommend revision rather than mechanistic proof."
+      ],
+      "forbidden_conclusions": [
+        "Claim reproducible superiority.",
+        "Claim Ag-to-Cu CO spillover is established."
+      ]
+    },
+    {
+      "id": "B09",
+      "title": "Contact-dependent spillover falsification",
+      "expected_disposition": "reject_current_hypothesis",
+      "scientific_challenge": "SYNTHETIC BENCHMARK DATA. The narrowly defined hypothesis states that direct Ag-Cu surface contact is necessary for the observed ethylene gain. In replicated tests, physically separated Ag and Cu electrodes exhibit an equivalent ethylene gain when Cu-local CO availability, potential, accessible area and transport conditions are matched. Structural measurements confirm the absence of a continuous Ag-Cu surface pathway during testing. The result persists across controlled operating points. Critically assess the scientific evidence. Identify supported observations, unresolved assumptions, alternative explanations and methodological limitations. Recommend the appropriate disposition for the claim, justify your decision and propose discriminating next steps.",
+      "required_reasoning": [
+        "Reject necessity of direct surface contact under the stipulated validated conditions.",
+        "Distinguish rejection of this specific hypothesis from rejection of all CO mediation.",
+        "Recognize compatibility with fluid-mediated tandem CO delivery.",
+        "Avoid claiming the carbon origin was proven."
+      ],
+      "forbidden_conclusions": [
+        "Reject every possible Ag-Cu tandem mechanism.",
+        "Claim isotope-resolved carbon attribution without tracing evidence."
+      ]
+    }
+  ],
+  "benchmark_version": "2.0"
+}

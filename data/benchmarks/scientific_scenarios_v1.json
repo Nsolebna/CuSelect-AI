@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "project": "CuSelect-AI",
+  "benchmark_type": "scientific_decision_scenarios",
+  "scenario_count": 6,
+  "source_type": "expert_authored_synthetic_challenges",
+  "scientific_validation": "pending_independent_review",
+  "evaluation_status": "not_yet_executed",
+  "scenarios": [
+    {
+      "id": "B01",
+      "category": "literature_evidence",
+      "scenario": "A catalyst publication reports ethylene FE but omits key operating conditions.",
+      "expected_behavior": [
+        "Identify missing conditions",
+        "Do not assume cross-study comparability",
+        "Do not predict performance for a new catalyst"
+      ]
+    },
+    {
+      "id": "B02",
+      "category": "computational_applicability",
+      "scenario": "Clean-slab DFT favors separated Ag atoms over adjacent Ag atoms in Ag2Cu34/Cu(100).",
+      "expected_behavior": [
+        "Recognize the model's structural scope",
+        "Distinguish energy ordering from catalytic activity",
+        "Do not infer ethylene FE or CO transfer",
+        "Acknowledge incomplete DFT convergence"
+      ]
+    },
+    {
+      "id": "B03",
+      "category": "conflicting_evidence",
+      "scenario": "Two measurements report different ethylene responses under incompletely specified conditions.",
+      "expected_behavior": [
+        "Identify the apparent disagreement",
+        "Request relevant experimental conditions",
+        "Avoid inventing a reconciliation"
+      ]
+    },
+    {
+      "id": "B04",
+      "category": "evidence_integrity",
+      "scenario": "An experimental gate references a source file whose SHA-256 differs from the registry.",
+      "expected_behavior": [
+        "Reject the evidence reference",
+        "Do not qualify the experiment",
+        "Report the integrity failure"
+      ]
+    },
+    {
+      "id": "B05",
+      "category": "experimental_dependencies",
+      "scenario": "Matched-pattern electrolysis is marked qualified while fabrication qualification remains pending.",
+      "expected_behavior": [
+        "Reject contradictory gate status",
+        "Prevent progression based on the invalid qualification",
+        "Require prior experimental qualification"
+      ]
+    },
+    {
+      "id": "B06",
+      "category": "mechanistic_falsifiability",
+      "scenario": "Ag-patterned Cu produces more ethylene, but surface area, transport and local CO exposure are not independently characterized.",
+      "expected_behavior": [
+        "Avoid attributing the improvement uniquely to CO transfer",
+        "Identify competing explanations",
+        "Recommend discriminating controls"
+      ]
+    }
+  ],
+  "limitations": [
+    "Scenarios are synthetic scientific challenges, not experimental results.",
+    "Expected behaviors require expert review before formal benchmarking.",
+    "No model accuracy or scientific reliability score has been established."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "status": "frozen_pending_human_approval",
+  "model_planned": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "mechanistic_cases": [
+    "B01",
+    "B02",
+    "B03",
+    "B06"
+  ],
+  "decision_cases": [
+    "B07",
+    "B08",
+    "B09"
+  ],
+  "mechanistic_requests_sha256": "1ffc3ffdaf868438770cfcbeb9746ce4b9f07dafe6ff0fd0ef30215ac9a4eea3",
+  "decision_requests_sha256": "782be5592323564b7a39500be7fd28c9987f7bf641f4ffb35b39a73a8a1c7196",
+  "evaluator_key_sha256": "29fe0755d1f5e69172900042759d2ccaef577a4aed985a22a982cf3e637f4289",
+  "expected_decisions": {
+    "B07": "advance_to_experimental_planning",
+    "B08": "revise_before_advancing",
+    "B09": "reject_current_hypothesis"
+  },
+  "scientific_human_approval": false,
+  "model_requests_executed_for_this_freeze": 0
+}
