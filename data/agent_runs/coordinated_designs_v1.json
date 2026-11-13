@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "agent": "optimization_coordinator",
+  "workflow_type": "deterministic_research_plan_refinement",
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "candidate_id": "CUAG-001",
+      "candidate_name": "Ag/Cu interface-density engineering",
+      "supporting_doi": "10.1021/acsami.8b20545",
+      "evidence_measurement_ids": [
+        "3d58eb75c1c53d6cefa2"
+      ],
+      "evolution": [
+        {
+          "stage": "initial_design",
+          "agent": "design_agent",
+          "hypothesis": "Controlling the spatial distribution of Ag/Cu interfaces may influence ethylene selectivity.",
+          "experimental_plan": "Prepare catalysts with systematically varied Ag/Cu interface density while controlling composition, loading, and testing conditions.",
+          "status": "untested"
+        },
+        {
+          "stage": "scientific_critique",
+          "agent": "scientific_critic",
+          "primary_risk": "Ag/Cu interface density may covary with Ag loading, particle size and exposed Cu surface area.",
+          "alternative_explanation": "Changes in ethylene selectivity may originate from surface composition or catalyst restructuring rather than interface density alone.",
+          "status": "rule_based_review"
+        },
+        {
+          "stage": "revised_research_plan",
+          "agent": "optimization_coordinator",
+          "hypothesis": "Controlling the spatial distribution of Ag/Cu interfaces may influence ethylene selectivity.",
+          "original_experiment": "Prepare catalysts with systematically varied Ag/Cu interface density while controlling composition, loading, and testing conditions.",
+          "added_control_experiment": "Compare catalysts at matched Ag fraction and electrochemical surface area while systematically varying interface length.",
+          "alternative_explanation_to_test": "Changes in ethylene selectivity may originate from surface composition or catalyst restructuring rather than interface density alone.",
+          "main_risk_to_monitor": "Ag/Cu interface density may covary with Ag loading, particle size and exposed Cu surface area.",
+          "revision_type": "research_plan_refinement",
+          "status": "proposed_not_experimentally_tested"
+        }
+      ],
+      "research_readiness": {
+        "evidence_traceability": 25,
+        "condition_documentation": 20.0,
+        "testability": 25,
+        "uncertainty_management": 25,
+        "total": 95.0
+      },
+      "presentation_order": 1,
+      "predicted_fe_percent": null,
+      "recommended_next_experiment": "Compare catalysts at matched Ag fraction and electrochemical surface area while systematically varying interface length."
+    },
+    {
+      "candidate_id": "CUAG-003",
+      "candidate_name": "Ag nanoparticle distribution on Cu frameworks",
+      "supporting_doi": "10.1002/aenm.202300088",
+      "evidence_measurement_ids": [
+        "9dd5cc4440421c0f01cb"
+      ],
+      "evolution": [
+        {
+          "stage": "initial_design",
+          "agent": "design_agent",
+          "hypothesis": "Controlling Ag nanoparticle distribution on Cu-containing framework nanosheets may change ethylene selectivity.",
+          "experimental_plan": "Vary Ag nanoparticle dispersion while monitoring framework stability, catalyst composition, and product selectivity.",
+          "status": "untested"
+        },
+        {
+          "stage": "scientific_critique",
+          "agent": "scientific_critic",
+          "primary_risk": "The Cu-containing framework may reconstruct during electrochemical operation.",
+          "alternative_explanation": "The active state may differ from the synthesized framework-nanosheet structure.",
+          "status": "rule_based_review"
+        },
+        {
+          "stage": "revised_research_plan",
+          "agent": "optimization_coordinator",
+          "hypothesis": "Controlling Ag nanoparticle distribution on Cu-containing framework nanosheets may change ethylene selectivity.",
+          "original_experiment": "Vary Ag nanoparticle dispersion while monitoring framework stability, catalyst composition, and product selectivity.",
+          "added_control_experiment": "Perform operando or post-reaction characterization and compare controlled Ag nanoparticle distributions.",
+          "alternative_explanation_to_test": "The active state may differ from the synthesized framework-nanosheet structure.",
+          "main_risk_to_monitor": "The Cu-containing framework may reconstruct during electrochemical operation.",
+          "revision_type": "research_plan_refinement",
+          "status": "proposed_not_experimentally_tested"
+        }
+      ],
+      "research_readiness": {
+        "evidence_traceability": 25,
+        "condition_documentation": 20.0,
+        "testability": 25,
+        "uncertainty_management": 25,
+        "total": 95.0
+      },
+      "presentation_order": 2,
+      "predicted_fe_percent": null,
+      "recommended_next_experiment": "Perform operando or post-reaction characterization and compare controlled Ag nanoparticle distributions."
+    },
+    {
+      "candidate_id": "CUAG-002",
+      "candidate_name": "Porosity-controlled Cu-Ag catalyst",
+      "supporting_doi": "10.1021/jacs.8b01868",
+      "evidence_measurement_ids": [
+        "3245f40ff6d4dd0bb8e3",
+        "268b168d46f4500925bf"
+      ],
+      "evolution": [
+        {
+          "stage": "initial_design",
+          "agent": "design_agent",
+          "hypothesis": "Modifying pore morphology in Cu-Ag catalysts may influence local transport and C2 selectivity.",
+          "experimental_plan": "Prepare comparable Cu-Ag catalysts with different pore structures and measure ethylene and ethanol selectivity under matched operating conditions.",
+          "status": "untested"
+        },
+        {
+          "stage": "scientific_critique",
+          "agent": "scientific_critic",
+          "primary_risk": "Pore morphology, wetting and local transport may change together.",
+          "alternative_explanation": "Selectivity differences may arise from local CO2 availability, pH or Cu/Ag surface composition.",
+          "status": "rule_based_review"
+        },
+        {
+          "stage": "revised_research_plan",
+          "agent": "optimization_coordinator",
+          "hypothesis": "Modifying pore morphology in Cu-Ag catalysts may influence local transport and C2 selectivity.",
+          "original_experiment": "Prepare comparable Cu-Ag catalysts with different pore structures and measure ethylene and ethanol selectivity under matched operating conditions.",
+          "added_control_experiment": "Compare pore structures at controlled composition, loading and operating conditions; measure local transport and wetting indicators.",
+          "alternative_explanation_to_test": "Selectivity differences may arise from local CO2 availability, pH or Cu/Ag surface composition.",
+          "main_risk_to_monitor": "Pore morphology, wetting and local transport may change together.",
+          "revision_type": "research_plan_refinement",
+          "status": "proposed_not_experimentally_tested"
+        }
+      ],
+      "research_readiness": {
+        "evidence_traceability": 25,
+        "condition_documentation": 0.0,
+        "testability": 25,
+        "uncertainty_management": 25,
+        "total": 75.0
+      },
+      "presentation_order": 3,
+      "predicted_fe_percent": null,
+      "recommended_next_experiment": "Compare pore structures at controlled composition, loading and operating conditions; measure local transport and wetting indicators."
+    }
+  ],
+  "limitations": [
+    "No experimental catalyst optimization performed.",
+    "No validated catalyst-performance predictions.",
+    "Readiness scores measure documentation and research planning, not intrinsic activity.",
+    "Proposed revisions require scientific validation."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "agent": "scientific_critic",
+  "method": "deterministic_scientific_rules",
+  "critiques": [
+    {
+      "candidate_id": "CUAG-001",
+      "candidate_name": "Ag/Cu interface-density engineering",
+      "evaluation_method": "deterministic_scientific_rules",
+      "supporting_doi": "10.1021/acsami.8b20545",
+      "validated_evidence_ids": [
+        "3d58eb75c1c53d6cefa2"
+      ],
+      "evidence_traceable": true,
+      "primary_risk": "Ag/Cu interface density may covary with Ag loading, particle size and exposed Cu surface area.",
+      "alternative_explanation": "Changes in ethylene selectivity may originate from surface composition or catalyst restructuring rather than interface density alone.",
+      "discriminating_experiment": "Compare catalysts at matched Ag fraction and electrochemical surface area while systematically varying interface length.",
+      "conditions_incomplete": true,
+      "performance_prediction_available": false,
+      "assessment": "requires_experimental_validation",
+      "scientific_note": "This is a predefined critical assessment, not an independently validated mechanistic finding or an LLM-generated conclusion."
+    },
+    {
+      "candidate_id": "CUAG-002",
+      "candidate_name": "Porosity-controlled Cu-Ag catalyst",
+      "evaluation_method": "deterministic_scientific_rules",
+      "supporting_doi": "10.1021/jacs.8b01868",
+      "validated_evidence_ids": [
+        "3245f40ff6d4dd0bb8e3",
+        "268b168d46f4500925bf"
+      ],
+      "evidence_traceable": true,
+      "primary_risk": "Pore morphology, wetting and local transport may change together.",
+      "alternative_explanation": "Selectivity differences may arise from local CO2 availability, pH or Cu/Ag surface composition.",
+      "discriminating_experiment": "Compare pore structures at controlled composition, loading and operating conditions; measure local transport and wetting indicators.",
+      "conditions_incomplete": true,
+      "performance_prediction_available": false,
+      "assessment": "requires_experimental_validation",
+      "scientific_note": "This is a predefined critical assessment, not an independently validated mechanistic finding or an LLM-generated conclusion."
+    },
+    {
+      "candidate_id": "CUAG-003",
+      "candidate_name": "Ag nanoparticle distribution on Cu frameworks",
+      "evaluation_method": "deterministic_scientific_rules",
+      "supporting_doi": "10.1002/aenm.202300088",
+      "validated_evidence_ids": [
+        "9dd5cc4440421c0f01cb"
+      ],
+      "evidence_traceable": true,
+      "primary_risk": "The Cu-containing framework may reconstruct during electrochemical operation.",
+      "alternative_explanation": "The active state may differ from the synthesized framework-nanosheet structure.",
+      "discriminating_experiment": "Perform operando or post-reaction characterization and compare controlled Ag nanoparticle distributions.",
+      "conditions_incomplete": true,
+      "performance_prediction_available": false,
+      "assessment": "requires_experimental_validation",
+      "scientific_note": "This is a predefined critical assessment, not an independently validated mechanistic finding or an LLM-generated conclusion."
+    }
+  ],
+  "critique_count": 3
+}

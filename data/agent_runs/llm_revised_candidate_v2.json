@@ -1,0 +1,185 @@
+{
+  "schema_version": "2.0",
+  "agent": "llm_revision_agent",
+  "generation_method": "llm_critique_informed_revision",
+  "model": "gpt-6.1-terra",
+  "candidate_status": "untested_revised_hypothesis",
+  "scientific_validation": "pending_human_review",
+  "performance_prediction_available": false,
+  "predicted_fe_percent": null,
+  "source_files": {
+    "design": "llm_design_proposals_v2.json",
+    "critique": "llm_scientific_critique_v2.json"
+  },
+  "source_sha256": {
+    "design": "1218c35781e893e4fde3804ad4fcb4aa3f4f9c463042d57afc19a0167e71563b",
+    "critique": "a1bc03921279d41c0ddd9fac86d5d803b016508aaa5f41ca877389a2b0383d8d"
+  },
+  "critic_findings_expected": 6,
+  "critic_findings_addressed": 6,
+  "revision": {
+    "candidate_name": "Patterned Ag-island Cu foil: controlled spatial-distribution study",
+    "original_candidate_name": "Patterned Ag-island Cu foil",
+    "revised_architecture": "Cu foils bearing patterned Ag islands, with uniform and clustered arrangements compared at closely matched Ag loading, projected coverage, island-size distribution and exposed geometric area. Nominal 100 nm diameter and 5% projected coverage are exploratory starting values, not established optima. Actual morphology and its evolution will determine which comparisons are interpretable.",
+    "revised_hypothesis": "Under specified CO2-reduction conditions, spatially distinct Ag-island patterns may produce different ethylene partial currents and local CO environments on Cu. One possible cause is transfer of Ag-generated CO to ethylene-forming Cu sites, but Cu-generated CO, boundary effects, reconstruction and transport changes are competing explanations. Stable matched patterns, CO perturbation and, if feasible, validated source-specific tracing can test this proposition.",
+    "mechanistic_claim_status": "untested_hypothesis",
+    "design_variables": [
+      {
+        "variable": "Ag island diameter",
+        "proposed_levels_or_range": "Exploratory nominal levels of 50, 100 and 200 nm, subject to fabrication feasibility.",
+        "scientific_reason": "Island size can affect Ag area, boundary length and the distance from Ag to Cu sites.",
+        "control_or_measurement": "Measure size distributions and coalescence by microscopy; match distributions within each spatial-pattern comparison."
+      },
+      {
+        "variable": "Projected Ag coverage and loading",
+        "proposed_levels_or_range": "Exploratory nominal projected coverages of 2.5%, 5% and 10%; measure Ag loading and island height independently.",
+        "scientific_reason": "Coverage, loading and island height can alter accessible areas and CO production; coverage is not equivalent to bulk Ag content.",
+        "control_or_measurement": "Quantify projected coverage by image analysis and loading by a calibrated composition method; match both as closely as practicable."
+      },
+      {
+        "variable": "Spatial arrangement and spacing",
+        "proposed_levels_or_range": "Compare uniform and clustered arrangements at selected size–coverage combinations, including the 100 nm/5% starting point; vary feasible within- and between-cluster spacing without requiring physically impossible combinations.",
+        "scientific_reason": "Local Ag neighborhoods and distances to Cu may affect CO availability, while spacing changes may also alter boundary length, area and transport.",
+        "control_or_measurement": "Map nearest-neighbor and Ag-to-Cu distance distributions, cluster dimensions, coalescence and Ag–Cu boundary length; do not assume these remain constant when spacing changes."
+      },
+      {
+        "variable": "Electrolysis and CO-feed conditions",
+        "proposed_levels_or_range": "Use a provisional, prespecified potential range and a small controlled CO-feed series after establishing a stable measurement window; no specific operating setpoint is claimed as optimal.",
+        "scientific_reason": "CO availability and surface evolution may depend on potential and feed composition.",
+        "control_or_measurement": "Match electrolyte, temperature, CO2 partial pressure, flow, pressure, duration and resistance-corrected potential; compensate added CO with inert gas where feasible and verify transport."
+      }
+    ],
+    "finding_responses": [
+      {
+        "finding_number": 1,
+        "issue_addressed": "The supplied Ag–Cu evidence does not establish this pattern or mechanism.",
+        "revision_action": "Use measurements 3245f40ff6d4dd0bb8e3 and 3d58eb75c1c53d6cefa2 as motivation only; verify primary sources and conditions and establish matched foil controls before comparative claims. Do not equate reported Ag content with projected coverage.",
+        "resolution_status": "partially_addressed",
+        "remaining_uncertainty": "Primary-source details and the performance of the proposed foils remain unverified."
+      },
+      {
+        "finding_number": 2,
+        "issue_addressed": "The nominal 100 nm size and 5% coverage are unsupported as optimal values.",
+        "revision_action": "Label both as exploratory and use a bounded size, coverage and spacing matrix with feasibility checks. Treat measurement 30a6dc51ed3f3454a972 as a total-C2 observation, not ethylene-specific performance evidence.",
+        "resolution_status": "addressed_in_research_plan",
+        "remaining_uncertainty": "Relevant transport lengths and useful dimensions are unknown; the proposed matrix may not encompass them."
+      },
+      {
+        "finding_number": 3,
+        "issue_addressed": "Ethylene production and bulk CO measurements do not establish Ag-derived CO transfer to Cu.",
+        "revision_action": "Prioritize validated Ag-source-selective isotope tracing if feasible, with spatial characterization, source-mixing controls and a separate exogenous labeled-CO positive control.",
+        "resolution_status": "partially_addressed",
+        "remaining_uncertainty": "Ag-specific labeling may be technically infeasible or insufficiently selective; Cu-derived CO and boundary effects may remain indistinguishable."
+      },
+      {
+        "finding_number": 4,
+        "issue_addressed": "Patterning and operation can change more than spatial arrangement.",
+        "revision_action": "Quantify size and spacing distributions, coverage, loading, coalescence, boundary length, accessible-area proxies, wettability and morphology before and after operation; use operando measurements where feasible.",
+        "resolution_status": "addressed_in_research_plan",
+        "remaining_uncertainty": "Perfect matching and preservation of patterns during electrolysis may not be achievable, and proxies may not represent active area."
+      },
+      {
+        "finding_number": 5,
+        "issue_addressed": "A pattern effect or FE change is not unique evidence for CO transfer.",
+        "revision_action": "Measure ethylene partial current and ethylene FE with other products, charge balance, area proxies, local-environment indicators and time-dependent structural changes.",
+        "resolution_status": "addressed_in_research_plan",
+        "remaining_uncertainty": "Correlated changes in surface state and transport may not be causally separable."
+      },
+      {
+        "finding_number": 6,
+        "issue_addressed": "Null and isotope-control outcomes need detection and stability qualifications.",
+        "revision_action": "Predefine matching and stability criteria, isotope detection limits, positive controls and decision thresholds; distinguish general CO incorporation from Ag-specific sourcing.",
+        "resolution_status": "addressed_in_research_plan",
+        "remaining_uncertainty": "A qualified null result constrains only the tested conditions and detectable contribution; an unvalidated source label cannot establish Ag-to-Cu transfer."
+      }
+    ],
+    "controlled_experiments": [
+      {
+        "name": "Matched-pattern comparison and stability assessment",
+        "question": "Do stable, spatially distinct Ag patterns produce reproducible differences in ethylene partial current and FE after measured surface and transport differences are considered?",
+        "experimental_groups": [
+          "Uniform and clustered patterns at the 100 nm/5% exploratory starting point",
+          "Selected additional feasible size–coverage pairs with both spatial arrangements",
+          "Cu-only foil and Ag-only electrode controls",
+          "Loading- and coverage-matched pattern controls where feasible"
+        ],
+        "variables_to_control": [
+          "Cu foil preparation, exposed geometric area and independently prepared electrodes",
+          "Ag loading, projected coverage, island-size distribution and accessible-area proxies as closely as practicable",
+          "Electrolyte, CO2 delivery, temperature, resistance-corrected potential, duration and sampling"
+        ],
+        "measurements": [
+          "Pre- and post-operation microscopy and composition maps for spacing, coalescence, boundary length, Cu restructuring and Ag redistribution; operando mapping where feasible",
+          "Ethylene partial current and FE, total current, CO and other major gas and liquid products, and time dependence",
+          "Roughness and accessible Cu/Ag area proxies, wettability, and local pH or transport indicators where feasible"
+        ],
+        "outcome_challenging_hypothesis": "A reproducible pattern difference adequately accounted for by measured area, restructuring or transport differences would weaken the CO-transfer interpretation. No difference between verified stable, distinct patterns would constrain the hypothesis under the tested conditions.",
+        "interpretation_limitations": "A null effect may reflect unsuitable spacing or sensitivity. A positive effect is not mechanism-specific, and matching nominal coverage does not guarantee matching boundary length or accessible surface."
+      },
+      {
+        "name": "Controlled CO-feed perturbation",
+        "question": "Is the pattern response consistent with CO availability to Cu?",
+        "experimental_groups": [
+          "Uniform and clustered patterns across a provisional CO-feed series",
+          "Cu-only and Ag-only controls under matched feeds"
+        ],
+        "variables_to_control": [
+          "CO2 partial pressure, total pressure, flow, electrolyte, temperature and resistance-corrected potential",
+          "CO concentration and exposure time; compensate gas composition with inert gas where feasible"
+        ],
+        "measurements": [
+          "Ethylene partial current and FE, CO production or consumption, major products and total current",
+          "Surface CO and transport indicators where feasible"
+        ],
+        "outcome_challenging_hypothesis": "A persistent pattern effect with comparable measured CO availability that instead tracks verified surface or transport differences would weaken a CO-availability explanation.",
+        "interpretation_limitations": "Feed changes can alter transport or surface state. Sensitivity to exogenous CO does not show that Ag supplies the relevant CO."
+      },
+      {
+        "name": "Isotope tracing with source validation",
+        "question": "Can Ag-associated CO be distinguished from other carbon sources in ethylene?",
+        "experimental_groups": [
+          "Patterned electrodes with an Ag-source-selective label if its selectivity can be validated",
+          "Unlabeled, Cu-only and Ag-only controls and controls for isotope mixing and background",
+          "Exogenous labeled-CO positive control to demonstrate detectable incorporation from the supplied CO pool"
+        ],
+        "variables_to_control": [
+          "Electrode geometry, electrolysis conditions, label enrichment, delivery and sampling time",
+          "Label cross-exposure, background and analytical detection limits"
+        ],
+        "measurements": [
+          "CO and ethylene isotopologues, source enrichment and background; verify spatial source selectivity and mixing independently",
+          "Ethylene production and a prespecified detection limit for the source-specific contribution"
+        ],
+        "outcome_challenging_hypothesis": "No detectable Ag-source-specific incorporation would weaken transfer under the tested conditions only if source selectivity, delivery, positive-control incorporation and sensitivity to a prespecified meaningful contribution are demonstrated.",
+        "interpretation_limitations": "Conventional exogenous labeled CO establishes incorporation from the supplied pool, not Ag-to-Cu transfer. If selective labeling cannot be validated, Ag-specific sourcing remains unresolved."
+      }
+    ],
+    "core_measurements": [
+      "Ethylene partial current density and ethylene FE separately from total C2-product FE.",
+      "Total current and calibrated gas and liquid product rates and FEs, including major competing CO2-reduction and hydrogen-evolution products.",
+      "Charge closure across quantified cathodic products, with uncertainty and unmeasured products reported; carbon input/output accounting including CO2 crossover or carbonate where measurable.",
+      "Pre/post island morphology, composition, loading, projected coverage, spacing and boundary distributions; operando evolution where feasible.",
+      "Accessible-area and roughness proxies, wettability, local pH or transport indicators, and time-dependent stability."
+    ],
+    "competing_explanations": [
+      "Cu-generated CO supplies ethylene-forming intermediates without a controlling Ag-to-Cu flux.",
+      "Ag–Cu boundary structure or electronic effects change Cu reactivity.",
+      "Pattern-dependent Cu restructuring, Ag redistribution or accessible area changes alter activity.",
+      "Local pH, wettability, CO2 transport or product removal differ between patterns."
+    ],
+    "unresolved_questions": [
+      "What are the local CO concentration and transport length under the eventual operating conditions?",
+      "Can stable, sufficiently matched patterns be fabricated across the proposed matrix?",
+      "Can Ag-specific isotope labeling be implemented and validated at useful sensitivity?",
+      "How accurately do area and local-environment measurements represent the active interface?",
+      "Do the supplied primary sources contain conditions permitting meaningful comparison? Novelty is not established."
+    ],
+    "inherited_evidence_measurement_ids": [
+      "3245f40ff6d4dd0bb8e3",
+      "3d58eb75c1c53d6cefa2",
+      "30a6dc51ed3f3454a972"
+    ],
+    "next_decision_gate": "Before electrolysis, preregister a practically meaningful ethylene partial-current difference, uncertainty and isotope detection targets, plus achievable matching and stability tolerances. As provisional screening criteria, target at least three independently fabricated electrodes per key group, coverage and loading matched within 10%, and a 90–110% cathodic product-FE sum within analytical uncertainty; revise these thresholds transparently if feasibility testing warrants it. Prespecify acceptable changes in spacing, coverage and boundary distributions from pre/post maps, using interim measurements where feasible. Advance a pattern-effect claim only if patterns remain distinguishable and sufficiently stable, balances and replicates pass the registered criteria, and the ethylene partial-current difference exceeds the registered threshold with uncertainty reported. Advance an Ag-to-Cu transfer claim only with independently validated Ag-source selectivity and detectable source-specific incorporation; otherwise retain it as unresolved. Failed matching, unstable patterns or inadequate analytical sensitivity trigger redesign rather than mechanistic conclusions.",
+    "concise_revision_summary": "The revision replaces an implied optimized pattern with a bounded, controlled study and separates pattern effects, CO availability and Ag-specific CO sourcing. No performance improvement or transfer mechanism is assumed established."
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "project": "CuSelect-AI",
+  "run_mode": "replay",
+  "execution_policy": {
+    "llm_calls_allowed": false,
+    "new_dft_calculations_allowed": false,
+    "external_requests_allowed": false
+  },
+  "created_utc": "2026-11-09T21:11:20.375226+00:00",
+  "research_objective": "Investigate testable Cu-Ag catalyst hypotheses for electrochemical CO2-to-ethylene conversion.",
+  "original_candidate": "Patterned Ag-island Cu foil",
+  "revised_candidate": "Pattern-resolved Ag-island Cu foil research plan",
+  "scientific_status": "pending_human_review",
+  "computational_status": "preliminary_clean_slab",
+  "workflow": [
+    {
+      "stage": "literature",
+      "status": "verified_saved_input",
+      "source_file": "data/agent_runs/literature_evidence_v1.json",
+      "sha256": "f4aa5eb3ee0137fca478f650fe0b448c9f90b22775191a5a790c0c240afe1f74"
+    },
+    {
+      "stage": "design",
+      "status": "verified_saved_input",
+      "source_file": "data/agent_runs/llm_design_proposals_v2.json",
+      "sha256": "1218c35781e893e4fde3804ad4fcb4aa3f4f9c463042d57afc19a0167e71563b"
+    },
+    {
+      "stage": "computational_context",
+      "status": "verified_saved_input",
+      "source_file": "data/processed/18_agent_evidence_context/agent_evidence_context_v1.json",
+      "sha256": "78021a8ec1c8b77e49d1f206287677fd2db9dbf6a45b4e15795036637d8dfd23"
+    },
+    {
+      "stage": "critique",
+      "status": "verified_saved_output",
+      "source_file": "data/agent_runs/llm_scientific_critique_with_dft_v3.json",
+      "sha256": "b1ca77932d04121c97f22de98159fa478e50913c801a1be36a31c0a917226170"
+    },
+    {
+      "stage": "revision",
+      "status": "verified_saved_output",
+      "source_file": "data/agent_runs/llm_revised_candidate_with_dft_v3.json",
+      "sha256": "9f3f25a22b6fffb8e212650c0ded3e19ed8083583d940ff01cf392264aaddf70"
+    }
+  ],
+  "outcomes": {
+    "scientific_findings": 6,
+    "findings_addressed": 6,
+    "proposed_controlled_experiments": 3,
+    "critic_disposition": "revise_before_advancing",
+    "next_decision_gate": "Before electrolysis, register the primary pattern comparison, provisional matching tolerances, a meaningful effect threshold and uncertainty analysis. Provisionally require at least three independent electrodes per primary group and a 95% confidence interval whose lower bound exceeds a 20% relative difference in ethylene partial current for a positive pattern-effect decision; this is an operational threshold, not a predicted effect. Qualify product quantification and provisionally require 90–110% charge closure with uncertainty and missing products disclosed. After operation, require preserved spatial contrast and report surface and transport differences before interpreting the comparison. For a source-specific decision, require verified Ag-derived CO exposure at Cu and a validated isotope-method upper bound below the prespecified 10% ethylene-carbon threshold. Failure of a qualification gate triggers refinement or an inconclusive result, not a mechanistic conclusion.",
+    "ethylene_fe_predicted": false
+  },
+  "limitations": [
+    "Replay verifies saved records; it does not run agents.",
+    "Saved fingerprints verify file consistency, not scientific truth.",
+    "DFT findings apply only to the tested clean-slab model.",
+    "Research decisions require human scientific review."
+  ]
+}

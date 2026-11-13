@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "agent": "design_agent",
+  "objective": "Explore Cu-based CO2-to-ethylene catalysts",
+  "generation_method": "deterministic_evidence_grounded_templates",
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "id": "CUAG-001",
+      "name": "Ag/Cu interface-density engineering",
+      "source_doi": "10.1021/acsami.8b20545",
+      "hypothesis": "Controlling the spatial distribution of Ag/Cu interfaces may influence ethylene selectivity.",
+      "proposed_experiment": "Prepare catalysts with systematically varied Ag/Cu interface density while controlling composition, loading, and testing conditions.",
+      "key_uncertainty": "Whether interface density can be varied independently of morphology and composition.",
+      "status": "untested_design_hypothesis",
+      "evidence_measurement_ids": [
+        "3d58eb75c1c53d6cefa2"
+      ],
+      "supporting_observations": [
+        {
+          "product": "ethylene",
+          "fe_percent": 42.0,
+          "qualifier": null,
+          "source_location": "supporting_information:Table S1, page S-27; Figure S18, page S-23"
+        }
+      ],
+      "predicted_fe_percent": null,
+      "scientific_warning": "Reported literature performance is not a prediction for this proposed design."
+    },
+    {
+      "id": "CUAG-002",
+      "name": "Porosity-controlled Cu-Ag catalyst",
+      "source_doi": "10.1021/jacs.8b01868",
+      "hypothesis": "Modifying pore morphology in Cu-Ag catalysts may influence local transport and C2 selectivity.",
+      "proposed_experiment": "Prepare comparable Cu-Ag catalysts with different pore structures and measure ethylene and ethanol selectivity under matched operating conditions.",
+      "key_uncertainty": "Whether changes in selectivity arise from porosity, surface composition, or restructuring.",
+      "status": "untested_design_hypothesis",
+      "evidence_measurement_ids": [
+        "3245f40ff6d4dd0bb8e3",
+        "268b168d46f4500925bf"
+      ],
+      "supporting_observations": [
+        {
+          "product": "ethylene",
+          "fe_percent": 60.0,
+          "qualifier": "nearly",
+          "source_location": "full_text:Figure 5c, page 5794"
+        },
+        {
+          "product": "ethanol",
+          "fe_percent": 25.0,
+          "qualifier": null,
+          "source_location": "full_text:Figure 5e, page 5794"
+        }
+      ],
+      "predicted_fe_percent": null,
+      "scientific_warning": "Reported literature performance is not a prediction for this proposed design."
+    },
+    {
+      "id": "CUAG-003",
+      "name": "Ag nanoparticle distribution on Cu frameworks",
+      "source_doi": "10.1002/aenm.202300088",
+      "hypothesis": "Controlling Ag nanoparticle distribution on Cu-containing framework nanosheets may change ethylene selectivity.",
+      "proposed_experiment": "Vary Ag nanoparticle dispersion while monitoring framework stability, catalyst composition, and product selectivity.",
+      "key_uncertainty": "Whether the original framework structure persists under CO2 reduction conditions.",
+      "status": "untested_design_hypothesis",
+      "evidence_measurement_ids": [
+        "9dd5cc4440421c0f01cb"
+      ],
+      "supporting_observations": [
+        {
+          "product": "ethylene",
+          "fe_percent": 21.43,
+          "qualifier": null,
+          "source_location": "supporting_information:Figure S11d, page 7"
+        }
+      ],
+      "predicted_fe_percent": null,
+      "scientific_warning": "Reported literature performance is not a prediction for this proposed design."
+    }
+  ]
+}

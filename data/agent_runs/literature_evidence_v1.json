@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "agent": "literature_agent",
+  "generated_at": "2026-11-09T01:21:33.131188+00:00",
+  "objective": "Provide reviewed literature evidence for Cu-based CO2-to-ethylene catalyst design.",
+  "summary": {
+    "measurements": 5,
+    "publications": 4,
+    "products": {
+      "ethylene": 3,
+      "ethanol": 1,
+      "c2_product_class": 1
+    },
+    "verified_condition_fields": 14
+  },
+  "scientific_constraints": [
+    "Do not interpret C2-product FE as ethylene FE.",
+    "Do not treat provisional conditions as verified.",
+    "Do not rank intrinsic catalyst performance using FE alone.",
+    "Do not invent experimental measurements.",
+    "Distinguish observed performance from design hypotheses."
+  ],
+  "evidence": [
+    {
+      "measurement_id": "3245f40ff6d4dd0bb8e3",
+      "doi": "10.1021/jacs.8b01868",
+      "title": "Nanoporous Copper–Silver Alloys by Additive-Controlled Electrodeposition for the Selective Electroreduction of CO<sub>2</sub> to Ethylene and Ethanol",
+      "product": "ethylene",
+      "fe_percent": 60.0,
+      "fe_qualifier": "nearly",
+      "fe_review": {
+        "status": "approved",
+        "source_location": "full_text:Figure 5c, page 5794",
+        "supporting_excerpt": "the FE for C2H4 formation from CuAg wire (∼60%) is higher than that of Cu wire (∼40%)",
+        "reviewer": "Bright"
+      },
+      "verified_conditions": {},
+      "unresolved_conditions": {},
+      "conditions_complete": false,
+      "raw_conditions_are_provisional": true
+    },
+    {
+      "measurement_id": "268b168d46f4500925bf",
+      "doi": "10.1021/jacs.8b01868",
+      "title": "Nanoporous Copper–Silver Alloys by Additive-Controlled Electrodeposition for the Selective Electroreduction of CO<sub>2</sub> to Ethylene and Ethanol",
+      "product": "ethanol",
+      "fe_percent": 25.0,
+      "fe_qualifier": null,
+      "fe_review": {
+        "status": "approved",
+        "source_location": "full_text:Figure 5e, page 5794",
+        "supporting_excerpt": "The CuAg catalyst exhibits high selectivity toward C2H4 (∼60%) and C2H5OH production (∼25%)",
+        "reviewer": "Bright"
+      },
+      "verified_conditions": {},
+      "unresolved_conditions": {},
+      "conditions_complete": false,
+      "raw_conditions_are_provisional": true
+    },
+    {
+      "measurement_id": "9dd5cc4440421c0f01cb",
+      "doi": "10.1002/aenm.202300088",
+      "title": "Enhancing CO<sub>2</sub> Electroreduction to Ethylene via Copper−Silver Tandem Catalyst in Boron‐Imidazolate Framework Nanosheet",
+      "product": "ethylene",
+      "fe_percent": 21.43,
+      "fe_qualifier": null,
+      "fe_review": {
+        "status": "approved",
+        "source_location": "supporting_information:Figure S11d, page 7",
+        "supporting_excerpt": "The FEC2H4, FECH4, FECO of Ag@BIF-104NSs(Cu) and BIF-104NSs(Cu) electrocatalysts in CO2 saturated electrolyte at different potential",
+        "reviewer": "Bright"
+      },
+      "verified_conditions": {
+        "electrolyte": {
+          "value": "CO2-saturated 0.5 M KHCO3 + 0.5 M KCl",
+          "unit": "",
+          "source": "Supporting Information, Section S5, page 2",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "cell_configuration": {
+          "value": "H-shaped two-compartment electrochemical cell",
+          "unit": "",
+          "source": "Supporting Information, Section S5, page 2",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "reference_electrode": {
+          "value": "Ag/AgCl",
+          "unit": "",
+          "source": "Supporting Information, Section S5, page 2",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "potential_v": {
+          "value": -1.2,
+          "unit": "V vs RHE",
+          "source": "Supporting Information, Figure S11d, page 7",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "catalyst_architecture": {
+          "value": "Ag nanoparticles supported on BIF-104(Cu) framework nanosheets",
+          "unit": "",
+          "source": "Supporting Information, Section S3, page 2; Figure S6, page 5",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        }
+      },
+      "unresolved_conditions": {},
+      "conditions_complete": false,
+      "raw_conditions_are_provisional": true
+    },
+    {
+      "measurement_id": "3d58eb75c1c53d6cefa2",
+      "doi": "10.1021/acsami.8b20545",
+      "title": "Silver/Copper Interface for Relay Electroreduction of Carbon Dioxide to Ethylene",
+      "product": "ethylene",
+      "fe_percent": 42.0,
+      "fe_qualifier": null,
+      "fe_review": {
+        "status": "approved",
+        "source_location": "supporting_information:Table S1, page S-27; Figure S18, page S-23",
+        "supporting_excerpt": "Table S1, Ag/Cu, -1.1 V vs RHE: FE(C2H4) = 42%; j = -5.5 mA cm^-2.",
+        "reviewer": "Bright"
+      },
+      "verified_conditions": {
+        "potential_v": {
+          "value": -1.1,
+          "unit": null,
+          "source": "Table S1, page S-27",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "current_density_ma_cm2": {
+          "value": -5.5,
+          "unit": null,
+          "source": "Table S1, page S-27",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "electrolyte": {
+          "value": "CO2-saturated 0.1 M KHCO3",
+          "unit": null,
+          "source": "Page S-3",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "cell_configuration": {
+          "value": "H-type cell",
+          "unit": null,
+          "source": "Page S-3",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "ag_content_percent": {
+          "value": 6.0,
+          "unit": null,
+          "source": "Figure S18, page S-23",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        }
+      },
+      "unresolved_conditions": {},
+      "conditions_complete": false,
+      "raw_conditions_are_provisional": true
+    },
+    {
+      "measurement_id": "30a6dc51ed3f3454a972",
+      "doi": "10.3390/molecules26082175",
+      "title": "Cu2O-Ag Tandem Catalysts for Selective Electrochemical Reduction of CO2 to C2 Products",
+      "product": "c2_product_class",
+      "fe_percent": 72.85,
+      "fe_qualifier": null,
+      "fe_review": {
+        "status": "approved",
+        "source_location": "full_text:Figure 3d,e",
+        "supporting_excerpt": "Furthermore, as shown in Figure 3d,e, the Cu2O-Ag catalyst reaches a maximum C2 products FE of 72.85% at −1.18 V (vs. RHE) with the partial current density of 243.32 mA·cm−2,",
+        "reviewer": "Bright"
+      },
+      "verified_conditions": {
+        "potential_v": {
+          "value": -1.18,
+          "unit": "V vs RHE",
+          "source": "Full text, Figure 3d,e; Section 2 (Results and Discussion)",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "current_density_ma_cm2": {
+          "value": -243.32,
+          "unit": "mA/cm2",
+          "source": "Full text, Section 4 Conclusions; Figure 3e",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "current_density_type": {
+          "value": "partial_C2_products",
+          "unit": "",
+          "source": "Full text, Section 2 (Results and Discussion); Figure 3d,e",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        },
+        "electrolyte": {
+          "value": "1 M KOH",
+          "unit": "",
+          "source": "Full text, Section 3.5 Electrochemical Measurements",
+          "reviewer": "Bright",
+          "review_date": "2026-11-09"
+        }
+      },
+      "unresolved_conditions": {},
+      "conditions_complete": false,
+      "raw_conditions_are_provisional": true
+    }
+  ]
+}
