@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "project": "CuSelect-AI",
+  "context_type": "computational_evidence",
+  "system": "Ag2Cu34 / Cu(100)",
+  "scope": "Adjacent versus separated surface Ag atoms in the tested periodic clean-slab model.",
+  "reference": {
+    "method": "GPAW-PBE",
+    "geometry": "MACE-relaxed",
+    "cutoff_ev": 350,
+    "kpoints": [
+      6,
+      6,
+      1
+    ],
+    "delta_sep_minus_nn_ev": -0.07342106391989489,
+    "delta_sep_minus_nn_mev": -73.421,
+    "status": "preliminary_dft"
+  },
+  "evidence_assessment": {
+    "all_tested_comparisons_favor_sep": true,
+    "kpoint_change_4x4_to_6x6_mev": 1.0499788582478686,
+    "cutoff_convergence": "incomplete",
+    "dft_geometry_relaxation": "not_performed",
+    "ethylene_selectivity": "not_predicted"
+  },
+  "supported_conclusion": "The separated Ag configuration has lower calculated energy across the tested clean-slab model comparisons.",
+  "unsupported_conclusions": [
+    "SEP is globally the most stable configuration.",
+    "SEP is more active for CO2 reduction.",
+    "SEP produces more ethylene.",
+    "The DFT reference is fully converged."
+  ],
+  "scientific_limitations": [
+    "Only NN and SEP configurations are compared.",
+    "Clean-slab energies do not predict ethylene selectivity.",
+    "Models have not been validated for electrochemical potential.",
+    "DFT cutoff convergence at dense k-points is incomplete.",
+    "DFT structures have not been geometry-optimized.",
+    "Finite-size and periodic-image effects remain untested.",
+    "Agreement across models is not a statistical uncertainty."
+  ],
+  "agent_instructions": [
+    "Use this evidence only for the specified Cu(100) clean-slab comparison.",
+    "Do not infer CO2RR activity or ethylene FE.",
+    "Do not describe the DFT results as fully converged.",
+    "Do not generalize this comparison to 100 nm Ag-island catalyst designs.",
+    "Distinguish computed energies from experimentally measured results.",
+    "Recommend further validation before making performance claims."
+  ],
+  "provenance": {
+    "registry_sha256": "b63e48fdedb61b6f84c9fe756f8790608ff37cbaaca985c48f243304e0b557e6",
+    "critique_sha256": "5c674faec91f7f5e9e4d7cb651a4c2c7006d78124a6cc712ae16252c4aa0867b"
+  },
+  "human_review_required": true
+}
