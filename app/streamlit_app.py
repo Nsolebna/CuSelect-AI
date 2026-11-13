@@ -449,3 +449,20 @@ st.markdown(
     '</div>',
     unsafe_allow_html=True,
 )
+
+
+st.markdown(
+    """
+    <div style="
+        margin-top: 12px;
+        color: #a5c2be;
+        font-size: 16px;
+        text-align: left;
+    ">
+        Created by <strong style="color: #f4f8f6;">
+        Bright Nsolebna Jaato</strong>
+        &nbsp;|&nbsp; Scientific AI for Electrochemistry
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
