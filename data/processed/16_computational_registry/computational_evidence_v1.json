@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-11-09T18:50:12.353121+00:00",
+  "project": "CuSelect-AI",
+  "system": "Ag2Cu34 on periodic Cu(100)",
+  "comparisons": [
+    {
+      "method": "EMT",
+      "geometry": "EMT-relaxed",
+      "delta_sep_minus_nn_ev": -0.09374208497162595,
+      "source_path": "data/processed/08_cross_evaluation/cross_evaluation.json",
+      "source_sha256": "fbfd046f236eec1b38feb9943235783a67cc2c117fda09eb5a7c4f4ef5789b68",
+      "evidence_status": "model_comparison",
+      "dft_reference": false
+    },
+    {
+      "method": "EMT",
+      "geometry": "MACE-relaxed",
+      "delta_sep_minus_nn_ev": -0.07978918210930352,
+      "source_path": "data/processed/08_cross_evaluation/cross_evaluation.json",
+      "source_sha256": "fbfd046f236eec1b38feb9943235783a67cc2c117fda09eb5a7c4f4ef5789b68",
+      "evidence_status": "model_comparison",
+      "dft_reference": false
+    },
+    {
+      "method": "MACE-MP-0-small",
+      "geometry": "EMT-relaxed",
+      "delta_sep_minus_nn_ev": -0.10135969421790492,
+      "source_path": "data/processed/08_cross_evaluation/cross_evaluation.json",
+      "source_sha256": "fbfd046f236eec1b38feb9943235783a67cc2c117fda09eb5a7c4f4ef5789b68",
+      "evidence_status": "model_comparison",
+      "dft_reference": false
+    },
+    {
+      "method": "MACE-MP-0-small",
+      "geometry": "MACE-relaxed",
+      "delta_sep_minus_nn_ev": -0.11672201687230199,
+      "source_path": "data/processed/08_cross_evaluation/cross_evaluation.json",
+      "source_sha256": "fbfd046f236eec1b38feb9943235783a67cc2c117fda09eb5a7c4f4ef5789b68",
+      "evidence_status": "model_comparison",
+      "dft_reference": false
+    },
+    {
+      "method": "GPAW-PBE",
+      "geometry": "MACE-relaxed",
+      "run_id": "250ev_gamma",
+      "cutoff_ev": 250,
+      "kpoints": [
+        1,
+        1,
+        1
+      ],
+      "smearing_ev": 0.1,
+      "nn_energy_ev": -108.611621273134,
+      "sep_energy_ev": -108.70216446597844,
+      "delta_sep_minus_nn_ev": -0.0905431928444358,
+      "source_files": {
+        "NN": {
+          "path": "data/processed/10_dft_slab_pilot/nn_pbe_250ev_gamma.json",
+          "sha256": "3eea3f787dd49f705a891860148cfcadbcd298c3f43669184aeaa25a837bf755",
+          "structure_sha256": "17e1c0c4b823abec053904b19d60aaa3b20709f2387bba602fda905330b33307"
+        },
+        "SEP": {
+          "path": "data/processed/10_dft_slab_pilot/sep_pbe_250ev_gamma.json",
+          "sha256": "0c5c52848eca03295f01a0c420cf17a2a6d1195d7be0766582312b74c81853e3",
+          "structure_sha256": "de0d89f06ea8c27dad71e1db520f1d0cdee2144b60e1d17416a5f5d7e6ca582c"
+        }
+      },
+      "evidence_status": "preliminary_dft",
+      "numerically_converged": false,
+      "dft_geometry_optimized": false,
+      "ethylene_selectivity_predicted": false
+    },
+    {
+      "method": "GPAW-PBE",
+      "geometry": "MACE-relaxed",
+      "run_id": "350ev_gamma",
+      "cutoff_ev": 350,
+      "kpoints": [
+        1,
+        1,
+        1
+      ],
+      "smearing_ev": 0.1,
+      "nn_energy_ev": -114.23611611006145,
+      "sep_energy_ev": -114.33337955994845,
+      "delta_sep_minus_nn_ev": -0.0972634498870093,
+      "source_files": {
+        "NN": {
+          "path": "data/processed/11_dft_cutoff_retry/nn_pbe_350ev_gamma.json",
+          "sha256": "af1c64e650b9245118f3757a43c944f4ce6e64ddcdf8eba2dd492de122febc66",
+          "structure_sha256": "17e1c0c4b823abec053904b19d60aaa3b20709f2387bba602fda905330b33307"
+        },
+        "SEP": {
+          "path": "data/processed/11_dft_cutoff_retry/sep_pbe_350ev_gamma.json",
+          "sha256": "ecb8a25226765a3799e99ef53cc264cb1afa6afb19daafa223734306bbe36d0a",
+          "structure_sha256": "de0d89f06ea8c27dad71e1db520f1d0cdee2144b60e1d17416a5f5d7e6ca582c"
+        }
+      },
+      "evidence_status": "preliminary_dft",
+      "numerically_converged": false,
+      "dft_geometry_optimized": false,
+      "ethylene_selectivity_predicted": false
+    },
+    {
+      "method": "GPAW-PBE",
+      "geometry": "MACE-relaxed",
+      "run_id": "350ev_2x2x1",
+      "cutoff_ev": 350,
+      "kpoints": [
+        2,
+        2,
+        1
+      ],
+      "smearing_ev": 0.1,
+      "nn_energy_ev": -112.53232838876488,
+      "sep_energy_ev": -112.60776909998778,
+      "delta_sep_minus_nn_ev": -0.07544071122289608,
+      "source_files": {
+        "NN": {
+          "path": "data/processed/12_dft_kpoint_tests/nn_pbe_350ev_2x2x1.json",
+          "sha256": "bd440a7cfab6bfac23195c5de8441066443df0cb31eaf3be1b458935e6ccb736",
+          "structure_sha256": "17e1c0c4b823abec053904b19d60aaa3b20709f2387bba602fda905330b33307"
+        },
+        "SEP": {
+          "path": "data/processed/12_dft_kpoint_tests/sep_pbe_350ev_2x2x1.json",
+          "sha256": "d6de64e80215f027c11ca45d6583937f8305a04ea9bb3c9da77b8d02446da9a4",
+          "structure_sha256": "de0d89f06ea8c27dad71e1db520f1d0cdee2144b60e1d17416a5f5d7e6ca582c"
+        }
+      },
+      "evidence_status": "preliminary_dft",
+      "numerically_converged": false,
+      "dft_geometry_optimized": false,
+      "ethylene_selectivity_predicted": false
+    },
+    {
+      "method": "GPAW-PBE",
+      "geometry": "MACE-relaxed",
+      "run_id": "350ev_4x4x1",
+      "cutoff_ev": 350,
+      "kpoints": [
+        4,
+        4,
+        1
+      ],
+      "smearing_ev": 0.1,
+      "nn_energy_ev": -111.90139982889721,
+      "sep_energy_ev": -111.97587087167535,
+      "delta_sep_minus_nn_ev": -0.07447104277814276,
+      "source_files": {
+        "NN": {
+          "path": "data/processed/13_dft_kpoint_4x4/nn_pbe_350ev_4x4x1.json",
+          "sha256": "8a35e418d910a2f9057e1b0361cf962d3b3ae29966538f4bda65c6a1b8e24ef0",
+          "structure_sha256": "17e1c0c4b823abec053904b19d60aaa3b20709f2387bba602fda905330b33307"
+        },
+        "SEP": {
+          "path": "data/processed/13_dft_kpoint_4x4/sep_pbe_350ev_4x4x1.json",
+          "sha256": "3b7f4d1511446aea43333083a4bed8020953d89bf0c027f89909e6aece0a0705",
+          "structure_sha256": "de0d89f06ea8c27dad71e1db520f1d0cdee2144b60e1d17416a5f5d7e6ca582c"
+        }
+      },
+      "evidence_status": "preliminary_dft",
+      "numerically_converged": false,
+      "dft_geometry_optimized": false,
+      "ethylene_selectivity_predicted": false
+    },
+    {
+      "method": "GPAW-PBE",
+      "geometry": "MACE-relaxed",
+      "run_id": "350ev_6x6x1",
+      "cutoff_ev": 350,
+      "kpoints": [
+        6,
+        6,
+        1
+      ],
+      "smearing_ev": 0.1,
+      "nn_energy_ev": -111.84435022404737,
+      "sep_energy_ev": -111.91777128796727,
+      "delta_sep_minus_nn_ev": -0.07342106391989489,
+      "source_files": {
+        "NN": {
+          "path": "data/processed/14_dft_kpoint_6x6/nn_pbe_350ev_6x6x1.json",
+          "sha256": "61a8b54c79a1f8d57f551225b035009b46491d92a6159b8058f1d116da7f48b8",
+          "structure_sha256": "17e1c0c4b823abec053904b19d60aaa3b20709f2387bba602fda905330b33307"
+        },
+        "SEP": {
+          "path": "data/processed/14_dft_kpoint_6x6/sep_pbe_350ev_6x6x1.json",
+          "sha256": "4e19ff6744131bdbfeda2aab914a16d37e773c4ccf058703ff0c2b111782d004",
+          "structure_sha256": "de0d89f06ea8c27dad71e1db520f1d0cdee2144b60e1d17416a5f5d7e6ca582c"
+        }
+      },
+      "evidence_status": "preliminary_dft",
+      "numerically_converged": false,
+      "dft_geometry_optimized": false,
+      "ethylene_selectivity_predicted": false
+    }
+  ],
+  "missing_results": [],
+  "scientific_limitations": [
+    "Only NN and SEP configurations are compared.",
+    "Clean-slab energies do not predict ethylene selectivity.",
+    "Models have not been validated for electrochemical potential.",
+    "DFT cutoff convergence at dense k-points is incomplete.",
+    "DFT structures have not been geometry-optimized.",
+    "Finite-size and periodic-image effects remain untested.",
+    "Agreement across models is not a statistical uncertainty."
+  ],
+  "summary": {
+    "total_comparisons": 9,
+    "matched_dft_comparisons": 5,
+    "all_dft_orderings_favor_sep": true,
+    "scientific_conclusion": "Preliminary energetic preference for SEP within the tested periodic slab configurations.",
+    "ethylene_fe_prediction_available": false,
+    "publication_quality_validation_complete": false
+  }
+}
