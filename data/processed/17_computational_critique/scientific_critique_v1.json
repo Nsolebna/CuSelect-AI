@@ -1,0 +1,44 @@
+{
+  "report_version": "1.0",
+  "registry_sha256": "b63e48fdedb61b6f84c9fe756f8790608ff37cbaaca985c48f243304e0b557e6",
+  "source_registry": "data/processed/16_computational_registry/computational_evidence_v1.json",
+  "model_comparisons_checked": 9,
+  "matched_dft_comparisons_checked": 5,
+  "findings": [
+    {
+      "finding": "energy_ordering",
+      "status": "supported_for_tested_configurations",
+      "details": "All available comparisons favor separated Ag."
+    },
+    {
+      "finding": "kpoint_sensitivity",
+      "status": "preliminary",
+      "difference_4x4_to_6x6_mev": 1.0499788582478686,
+      "details": "Measured at 350 eV using fixed MACE-relaxed geometries."
+    },
+    {
+      "finding": "dft_cutoff_convergence",
+      "status": "incomplete",
+      "details": "Dense-grid plane-wave cutoff convergence has not been established."
+    },
+    {
+      "finding": "dft_geometry_relaxation",
+      "status": "not_performed",
+      "details": "DFT evaluated MACE-relaxed geometries; atomic positions were not DFT-optimized."
+    },
+    {
+      "finding": "ethylene_selectivity",
+      "status": "unsupported",
+      "details": "Clean-slab stability alone cannot establish CO2-to-ethylene selectivity or Faradaic efficiency."
+    }
+  ],
+  "supported_conclusion": "The separated Ag configuration has lower calculated energy across the tested clean-slab model comparisons.",
+  "unsupported_conclusions": [
+    "SEP is globally the most stable configuration.",
+    "SEP is more active for CO2 reduction.",
+    "SEP produces more ethylene.",
+    "The DFT reference is fully converged."
+  ],
+  "recommended_next_action": "Integrate provisional computational evidence into candidate review, while prioritizing reaction-relevant descriptors and uncertainty.",
+  "human_scientific_review_required": true
+}
