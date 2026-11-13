@@ -26,6 +26,7 @@ HTML_TEMPLATE = r"""
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
 
 <style>
@@ -43,7 +44,7 @@ body {
 .panel {
     position: relative;
     width: 100%;
-    height: 475px;
+    height: min(475px, calc(100vh - 5px));
     overflow: hidden;
     border: 1px solid #e3e8ef;
     border-radius: 16px;
@@ -116,7 +117,7 @@ button:hover {
 <div class="panel">
     <div id="viewer"></div>
 
-    <div class="toolbar">
+    <div class="toolbar" role="group" aria-label="Structure orientation">
         <button data-view="perspective">Perspective</button>
         <button data-view="top">Top</button>
         <button data-view="side">Side</button>
@@ -131,7 +132,7 @@ button:hover {
         </span>
     </div>
 
-    <div id="error">
+    <div id="error" role="status">
         Molecular renderer unavailable. Check network access
         to 3Dmol.org.
     </div>

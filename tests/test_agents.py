@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 import cuselect.agents as agents
+import cuselect.legacy_agents as legacy_agents
 from cuselect.agents import ResearchTask, literature_agent
 from cuselect.evidence_store import EvidenceIntegrityError
 
@@ -111,7 +112,7 @@ def test_evidence_loader_failure_is_not_bypassed(monkeypatch):
         raise EvidenceIntegrityError("Evidence integrity failure")
 
     monkeypatch.setattr(
-        agents,
+        legacy_agents,
         "load_verified_corpus",
         reject_corrupted_evidence,
     )

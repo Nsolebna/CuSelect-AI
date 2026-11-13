@@ -1,0 +1,32 @@
+[
+  {
+    "case_id": "CASE-CUSELECT-BENCH-001",
+    "candidate_id": "CUSELECT-BENCH-001",
+    "source_type": "provisional_benchmark",
+    "benchmark_path": "data/processed/benchmark_candidates/CUSELECT-BENCH-001.json",
+    "review_status": "provisional",
+    "validation_status": "automated_assessed",
+    "decision_status": "not_assessed",
+    "created_at": "2026-11-12T08:10:32.463174+00:00",
+    "validation_assessment": {
+      "assessment_type": "automated_evidence_check",
+      "benchmark_id": "CUSELECT-BENCH-001",
+      "catalyst": "AgCu NW",
+      "product": "ethylene",
+      "source_doi": "10.1038/s41467-024-54636-w",
+      "reported_fe_percent": 54.9,
+      "source_verification_status": "provisional_source_traceable",
+      "missing_fields": [
+        "Electrolyte composition",
+        "Current-density definition",
+        "Human verification of the reported measurement and experimental conditions"
+      ],
+      "ranking_allowed": false,
+      "recommendation": "Check the primary publication and supplementary information, resolve the missing experimental conditions, and assess comparability before ranking this catalyst.",
+      "human_approved": false,
+      "scientifically_verified": false,
+      "saved_at": "2026-11-13T00:28:23.843587+00:00"
+    },
+    "updated_at": "2026-11-13T00:28:23.843587+00:00"
+  }
+]

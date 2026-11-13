@@ -1,0 +1,139 @@
+{
+  "3d58eb75c1c53d6cefa2": {
+    "measurement_id": "3d58eb75c1c53d6cefa2",
+    "doi": "10.1021/acsami.8b20545",
+    "product": "ethylene",
+    "field_reviews": {
+      "potential_v": {
+        "value": -1.1,
+        "source": "Table S1, page S-27",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09"
+      },
+      "current_density_ma_cm2": {
+        "value": -5.5,
+        "source": "Table S1, page S-27",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09"
+      },
+      "electrolyte": {
+        "value": "CO2-saturated 0.1 M KHCO3",
+        "source": "Page S-3",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09"
+      },
+      "cell_configuration": {
+        "value": "H-type cell",
+        "source": "Page S-3",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09"
+      },
+      "ag_content_percent": {
+        "value": 6.0,
+        "source": "Figure S18, page S-23",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09"
+      }
+    }
+  },
+  "9dd5cc4440421c0f01cb": {
+    "measurement_id": "9dd5cc4440421c0f01cb",
+    "doi": "10.1002/aenm.202300088",
+    "product": "ethylene",
+    "field_reviews": {
+      "electrolyte": {
+        "value": "CO2-saturated 0.5 M KHCO3 + 0.5 M KCl",
+        "unit": "",
+        "source": "Supporting Information, Section S5, page 2",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "CO2-saturated mixed electrolyte used in the H-shaped electrochemical cell."
+      },
+      "cell_configuration": {
+        "value": "H-shaped two-compartment electrochemical cell",
+        "unit": "",
+        "source": "Supporting Information, Section S5, page 2",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "Cathodic and anodic compartments separated by a Nafion-117 proton exchange membrane."
+      },
+      "reference_electrode": {
+        "value": "Ag/AgCl",
+        "unit": "",
+        "source": "Supporting Information, Section S5, page 2",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "Ag/AgCl reference electrode; platinum net counter electrode."
+      },
+      "potential_v": {
+        "value": -1.2,
+        "unit": "V vs RHE",
+        "source": "Supporting Information, Figure S11d, page 7",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "Ethylene FE of 21.43% corresponds to the approximately -1.2 V vs RHE data point in Figure S11d. Potential verified visually from the supporting figure."
+      },
+      "catalyst_architecture": {
+        "value": "Ag nanoparticles supported on BIF-104(Cu) framework nanosheets",
+        "unit": "",
+        "source": "Supporting Information, Section S3, page 2; Figure S6, page 5",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "Ag@BIF-104NSs(Cu) tandem catalyst prepared using BIF-104(Cu) and AgNO3 under light irradiation."
+      }
+    }
+  },
+  "30a6dc51ed3f3454a972": {
+    "measurement_id": "30a6dc51ed3f3454a972",
+    "doi": "10.3390/molecules26082175",
+    "product": "c2_product_class",
+    "field_reviews": {
+      "potential_v": {
+        "value": -1.18,
+        "unit": "V vs RHE",
+        "source": "Full text, Figure 3d,e; Section 2 (Results and Discussion)",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "Maximum FE(C2 products) of 72.85% reported at -1.18 V vs RHE. Verified against Figure 3d,e and accompanying discussion."
+      },
+      "current_density_ma_cm2": {
+        "value": -243.32,
+        "unit": "mA/cm2",
+        "source": "Full text, Section 4 Conclusions; Figure 3e",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "C2-product partial current density. The abstract and Section 2 report a positive magnitude of 243.32 mA/cm2, while Section 4 reports the signed cathodic value of -243.32 mA/cm2."
+      },
+      "current_density_type": {
+        "value": "partial_C2_products",
+        "unit": "",
+        "source": "Full text, Section 2 (Results and Discussion); Figure 3d,e",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "Partial current density for combined C2 products, not total current density or ethylene-only partial current density. Reported magnitude is 243.32 mA/cm2."
+      },
+      "electrolyte": {
+        "value": "1 M KOH",
+        "unit": "",
+        "source": "Full text, Section 3.5 Electrochemical Measurements",
+        "status": "human_verified",
+        "reviewer": "Bright",
+        "review_date": "2026-11-09",
+        "note": "1 M KOH electrolyte used in a gas-fed flow cell with gas diffusion electrode."
+      }
+    }
+  }
+}

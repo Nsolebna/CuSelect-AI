@@ -30,3 +30,29 @@ data/processed/**
 
 # Local scratch
 .cache/
+
+# Streamlit secrets and configuration backups
+.streamlit/secrets*
+.streamlit/*.bak
+.streamlit/*.before_*.toml
+
+# Local development backups and scratch archives
+backups/
+*.bak
+*.backup_*
+*.before_*
+*.zip
+
+# Local generated audit artifacts
+cuselect_i18n_audit.json
+
+# Runtime lock files
+*.lock
+
+# Additional backup naming conventions
+*.backup.*
+*_backup_*
+*.backup.py
+
+# Local reviewer identity and review records
+data/evidence_claim_reviews.json

@@ -25,7 +25,7 @@ def test_doi_normalization():
 
 def test_bibliography_syntax_is_not_content_verification():
     audit = audit_seed_bibliography(PAPERS)
-    assert len(audit) == 8
+    assert len(audit) == 9
     assert audit.doi_syntax_valid.all()
     assert not audit.duplicate_doi.any()
     assert set(audit.bibliographic_status) == {"seed_not_verified"}

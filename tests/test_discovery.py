@@ -15,6 +15,9 @@ from pathlib import Path
 
 import pytest
 
+from urllib.error import HTTPError
+
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
@@ -173,3 +176,139 @@ def test_crossref_connection_failure_is_propagated(monkeypatch):
             "CO2 electroreduction",
             rows=5,
         )
+
+
+# ============================================================
+# TEST: CROSSREF HTTP 429 RETRY HANDLING
+# ============================================================
+
+def test_crossref_429_retries_and_succeeds(monkeypatch):
+    """
+    Verify that discovery retries after HTTP 429
+    and succeeds when Crossref becomes available.
+    """
+
+    # PSEUDOCODE
+    # 1. Simulate Crossref rejecting the first request.
+    # 2. Simulate a successful response on the second request.
+    # 3. Disable real waiting during the test.
+    # 4. Verify that discovery retries exactly once.
+    # 5. Verify that the returned publication is unverified.
+
+    attempts = []
+    delays = []
+
+    payload = {
+        "message": {
+            "items": [
+                {
+                    "DOI": "10.1234/retry-test",
+                    "title": [
+                        "CO2 electroreduction on copper and silver"
+                    ],
+                    "published": {"date-parts": [[2025]]},
+                    "container-title": ["Test Journal"],
+                }
+            ]
+        }
+    }
+
+    def fake_urlopen(request, timeout):
+        attempts.append(1)
+
+        if len(attempts) == 1:
+            raise HTTPError(
+                url=request.full_url,
+                code=429,
+                msg="Too Many Requests",
+                hdrs={"Retry-After": "0"},
+                fp=None,
+            )
+
+        return io.BytesIO(
+            json.dumps(payload).encode("utf-8")
+        )
+
+    monkeypatch.setattr(
+        discovery, "urlopen", fake_urlopen
+    )
+
+    monkeypatch.setattr(
+        discovery.time, "sleep", delays.append
+    )
+
+    monkeypatch.setattr(
+        discovery.random, "uniform",
+        lambda a, b: 0,
+    )
+
+    papers = discovery.discover_crossref(
+        "Cu Ag CO2 electroreduction",
+        rows=5,
+    )
+
+    assert len(attempts) == 2
+    assert delays == [0.0]
+
+    assert len(papers) == 1
+    assert papers[0]["doi"] == "10.1234/retry-test"
+
+    assert (
+        papers[0]["scientific_status"]
+        == "unverified_discovery"
+    )
+
+
+# ============================================================
+# TEST: CROSSREF HTTP 429 MAXIMUM RETRIES
+# ============================================================
+
+def test_crossref_429_stops_after_max_retries(monkeypatch):
+    """
+    Verify that persistent HTTP 429 errors
+    stop after five attempts.
+    """
+
+    # PSEUDOCODE
+    # 1. Simulate Crossref returning HTTP 429 every time.
+    # 2. Disable real waiting during the test.
+    # 3. Run the discovery function.
+    # 4. Verify that HTTP 429 is eventually raised.
+    # 5. Verify exactly five attempts and four waits.
+
+    attempts = []
+    delays = []
+
+    def fake_urlopen(request, timeout):
+        attempts.append(1)
+
+        raise HTTPError(
+            url=request.full_url,
+            code=429,
+            msg="Too Many Requests",
+            hdrs={"Retry-After": "0"},
+            fp=None,
+        )
+
+    monkeypatch.setattr(
+        discovery, "urlopen", fake_urlopen
+    )
+
+    monkeypatch.setattr(
+        discovery.time, "sleep", delays.append
+    )
+
+    monkeypatch.setattr(
+        discovery.random, "uniform",
+        lambda a, b: 0,
+    )
+
+    with pytest.raises(HTTPError) as error:
+        discovery.discover_crossref(
+            "Cu Ag CO2 electroreduction",
+            rows=5,
+        )
+
+    assert error.value.code == 429
+    assert len(attempts) == 5
+    assert len(delays) == 4
